@@ -8,6 +8,9 @@ class Subset:
     green: int = 0
     blue: int = 0
 
+    def power(self):
+        return self.red * self.green * self.blue
+
 
 @dataclass()
 class Game:
@@ -50,16 +53,9 @@ def main():
     with open("./day-2/input.txt", "r") as file:
         games = [parse_game(line) for line in file]
 
-    base_subset = Subset(red=12, green=13, blue=14)
-    game_ids = []
+    total_power = sum(game.max_subset().power() for game in games)
 
-    for game in games:
-        max_subset = game.max_subset()
-
-        if max_subset.red <= 12 and max_subset.green <= 13 and max_subset.blue <= 14:
-            game_ids.append(game.id)
-
-    print(sum(game_ids))
+    print(total_power)
 
 
 if __name__ == "__main__":
