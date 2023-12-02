@@ -18,21 +18,21 @@ def calibration_value(value: str) -> int:
         end_idx -= 1
 
     if first_digit is None or last_digit is None:
-        raise ValueError('No digits found in value')
+        raise ValueError("No digits found in value")
 
     return int(first_digit + last_digit)
 
 
 numbers_map = {
-    'one': '1',
-    'two': '2',
-    'three': '3',
-    'four': '4',
-    'five': '5',
-    'six': '6',
-    'seven': '7',
-    'eight': '8',
-    'nine': '9',
+    "one": "1",
+    "two": "2",
+    "three": "3",
+    "four": "4",
+    "five": "5",
+    "six": "6",
+    "seven": "7",
+    "eight": "8",
+    "nine": "9",
 }
 
 
@@ -65,14 +65,12 @@ def calibration_value_2(value: str) -> int:
 
         index += 1
 
-
     if first_digit is None or last_digit is None:
-        raise ValueError('No digits found in value')
+        raise ValueError("No digits found in value")
 
     return int(first_digit + last_digit)
 
 
-if __name__ == '__main__':
-    with open('./day-1/input.txt', 'r') as file:
+if __name__ == "__main__":
+    with open("./day-1/input.txt", "r") as file:
         print(sum(calibration_value_2(line) for line in file))
-
